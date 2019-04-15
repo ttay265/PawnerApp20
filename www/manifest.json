@@ -1,0 +1,277 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "pawner.app",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "",
+		"description": "",
+		"resources": "resources.json",
+		"ach": "ach",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "pawner.app.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "pawner.app.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "pawner.app.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"async": true
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "home",
+				"target": [
+					"home"
+				]
+			}, {
+				"pattern": "SearchFilterShop",
+				"name": "searchFilterShop",
+				"target": [
+					"searchFilterShop"
+				]
+			}, {
+				"pattern": "LoginAndRegister",
+				"name": "loginAndRegister",
+				"target": [
+					"loginAndRegister"
+				]
+			}, {
+				"pattern": "RegisterPage",
+				"name": "registerPage",
+				"target": [
+					"registerPage"
+				]
+			}, {
+				"pattern": "LoginPage",
+				"name": "loginPage",
+				"target": [
+					"loginPage"
+				]
+			}, {
+				"pattern": "NearByLocation/?lat={lat}&lng={lng}",
+				"name": "nearByLocation",
+				"target": [
+					"nearByLocation"
+				]
+			}, {
+				"pattern": "ShopDetail/?{shopId}",
+				"name": "shopDetail",
+				"target": [
+					"shopDetail"
+				]
+			}, {
+				"pattern": "SearchShop",
+				"name": "searchShop",
+				"target": [
+					"searchShop"
+				]
+			}, {
+				"pattern": "SearchItem",
+				"name": "searchItem",
+				"target": [
+					"searchItem"
+				]
+			}, {
+				"pattern": "UserDetail",
+				"name": "userDetail",
+				"target": [
+					"userDetail"
+				]
+			}, {
+				"pattern": "ResultSearchShop/?query={query}",
+				"name": "resultSearchShop",
+				"target": [
+					"resultSearchShop"
+				]
+			}, {
+				"pattern": "Notification",
+				"name": "notification",
+				"target": [
+					"notification"
+				]
+			}, {
+				"pattern": "NotificationDetail/?objId={objId}",
+				"name": "notificationDetail",
+				"target": [
+					"notificationDetail"
+				]
+			}, {
+				"pattern": "ResultSearchItem/?query={query}",
+				"name": "resultSearchItem",
+				"target": [
+					"resultSearchItem"
+				]
+			}, {
+				"pattern": "SearchFilterItem",
+				"name": "searchFilterItem",
+				"target": [
+					"searchFilterItem"
+				]
+			}, {
+				"pattern": "ItemDetail/?{itemId}",
+				"name": "itemDetail",
+				"target": [
+					"itemDetail"
+				]
+			}, {
+				"pattern": "Activate/register?token={token}",
+				"name": "activate",
+				"target": [
+					"activate"
+				]
+			}, {
+				"pattern": "RegisterShop",
+				"name": "registerShop",
+				"target": [
+					"registerShop"
+				]
+			}, {
+				"pattern": "FindShopByMap/dis={dis}&cate={cate}",
+				"name": "findShopByMap",
+				"target": [
+					"findShopByMap"
+				]
+			}],
+			"targets": {
+				"home": {
+					"viewName": "Home",
+					"viewId": "home",
+					"viewLevel": 1,
+					"title": "{i18n>title}"
+				},
+				"searchFilterShop": {
+					"viewName": "SearchFilterShop",
+					"viewId": "searchFilterShop"
+				},
+				"loginAndRegister": {
+					"viewName": "LoginAndRegister",
+					"viewId": "loginAndRegister"
+				},
+				"registerPage": {
+					"viewName": "RegisterPage",
+					"viewId": "registerPage"
+				},
+				"loginPage": {
+					"viewName": "LoginPage",
+					"viewId": "loginPage"
+				},
+				"nearByLocation": {
+					"viewName": "NearByLocation",
+					"viewId": "nearByLocation"
+				},
+				"shopDetail": {
+					"viewName": "ShopDetail",
+					"viewId": "shopDetail"
+				},
+				"searchShop": {
+					"viewName": "SearchShop",
+					"viewId": "searchShop"
+				},
+				"searchItem": {
+					"viewName": "SearchItem",
+					"viewId": "searchItem"
+				},
+				"userDetail": {
+					"viewName": "UserDetail",
+					"viewId": "userDetail"
+				},
+				"resultSearchShop": {
+					"viewName": "ResultSearchShop",
+					"viewId": "resultSearchShop"
+				},
+				"notification": {
+					"viewName": "Notification",
+					"viewId": "notification"
+				},
+				"notificationDetail": {
+					"viewName": "NotificationDetail",
+					"viewId": "notificationDetail"
+				},
+				"resultSearchItem": {
+					"viewName": "ResultSearchItem",
+					"viewId": "resultSearchItem"
+				},
+				"searchFilterItem": {
+					"viewName": "SearchFilterItem",
+					"viewId": "searchFilterItem"
+				},
+				"itemDetail": {
+					"viewName": "ItemDetail",
+					"viewId": "itemDetail"
+				},
+				"activate": {
+					"viewName": "Activate",
+					"viewId": "activate"
+				},
+				"registerShop": {
+					"viewName": "RegisterShop",
+					"viewId": "registerShop"
+				},
+				"findShopByMap": {
+					"viewName": "FindShopByMap",
+					"viewId": "findShopByMap"
+				}
+			}
+		}
+	}
+}

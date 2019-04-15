@@ -1,0 +1,57 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="pawner.app.controller.SearchFilterShop" xmlns:fb="sap.ui.comp.filterbar">
+	<App>
+		<pages>
+			<Page title="Title" class="page_container">
+				<customHeader>
+					<Bar xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__bar1">
+						<contentLeft>
+							<!--<Button icon="sap-icon://nav-back" width="10%" class="back" press="btnBackHome"/>-->
+							<Button text="{i18n>btn_cam_do}" width="45%" id="__button0" class="btn_header font_weight"/>
+							<Button text="{i18n>btn_thanh_ly}" width="45%" id="__button1" class="btn_header" press="navToSearchFilterItem"/>
+						</contentLeft>
+					</Bar>
+				</customHeader>
+				<footer>
+					<Bar id="__bar2" design="Footer">
+						<contentLeft>
+							<VBox width="33.33%" class="footer_icon_box">
+								<Button icon="sap-icon://crm-service-manager" press="openDialogSort" class="footer_btn"/>
+								<Label text="{i18n>lb_sort}" class="footer_lb"/>
+							</VBox>
+							<VBox width="33.33%" class="footer_icon_box">
+								<Button icon="sap-icon://detail-view" press="openDialogFilter" class="footer_btn"/>
+								<Label text="{i18n>lb_searchFilter}" class="footer_lb"/>
+							</VBox>
+							<VBox width="33.33%" class="footer_icon_box">
+								<Button icon="sap-icon://functional-location" press="navToNearByLocation" class="footer_btn"/>
+								<Label text="{i18n>btn_nearByLocation}" class="footer_lb"/>
+							</VBox>
+						</contentLeft>
+					</Bar>
+				</footer>
+				<content>
+					<HBox class="box_title_location">
+						<Button width="100%" icon="sap-icon://menu" text="{i18n>btn_listShop}" class="btn_location border_bottom"/>
+						<Button width="100%" icon="sap-icon://map-2" 
+						press="navToMapShop" text="{i18n>btn_mapShop}" class="btn_location"/>
+					</HBox>
+					<List id="ShopList" items="{oModelShop>/results}" class="shopList_container" 
+					growing="true" growingThreshold="10" growingScrollToLoad="true">
+						<CustomListItem type="Navigation" press="navToShopDetail" class="listShopItem">
+							<HBox>
+								<Image src="{oModelShop>avatarUrl}" class="listShopItem_image"/>
+								<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+									<Title text="{oModelShop>shopName}" class="listShopItem_title"/>
+									<Text text="{oModelShop>address/fullAddress}" class="listShopItem_address"/>
+									<RatingIndicator id="RI_default" maxValue="5" class="sapUiSmallMarginBottom padding_top" value="{oModelShop>rating}" displayOnly="true"
+										tooltip="Rating Tooltip"/>
+								</VBox>
+							</HBox>
+						</CustomListItem>
+					</List>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
