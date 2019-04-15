@@ -13,9 +13,6 @@ sap.ui.define([
 		onInit: function() {
 			var oRouter = this.getRouter();
 
-			var oModelShop = new JSONModel();
-			this.setModel(oModelShop, "oModelShop");
-
 			this.getView().byId("map_canvas").addStyleClass("myMap");
 			oRouter.getRoute("nearByLocation").attachPatternMatched(this._onRouteMatched, this);
 		},
@@ -25,8 +22,19 @@ sap.ui.define([
 			this.lat = oEvent.getParameter("arguments").lat;
 			this.lng = oEvent.getParameter("arguments").lng;
 
-			this.getMyMarker(this.lat, this.lng);
+			var latLong = new google.maps.LatLng(this.lat, this.lng);
+			var currentPos = new google.maps.Marker({
+				position: latLong,
+				map: gMap,
+				icon: {
+					url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+				}
+			});
+			gMap.setZoom(15);
+			gMap.setCenter(currentPos.getPosition());
 
+			this.clearMarker();
+			count = 0;
 			this.getAllMarker(this.lat, this.lng);
 		},
 
